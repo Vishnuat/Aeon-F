@@ -59,9 +59,9 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
     rclone_path = f"tanha/{user_id}.conf"
     user_dict = user_data.get(user_id, {})
     if key is None:
-        buttons.callback("Universal", f"userset {user_id} universal")
-        buttons.callback("Mirror", f"userset {user_id} mirror")
-        buttons.callback("Leech", f"userset {user_id} leech")
+        buttons.callback("Universal Settings", f"userset {user_id} universal")
+        buttons.callback("Mirror Settings", f"userset {user_id} mirror")
+        buttons.callback("Leech Settings", f"userset {user_id} leech")
         if user_dict and any(
             key in user_dict
             for key in [
@@ -101,9 +101,6 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         buttons.callback("Remname", f"userset {user_id} remname")
         remname = user_dict.get("remname", "Not Exists")
 
-        buttons.callback("Metadata", f"userset {user_id} metadata")
-        metadata = user_dict.get("metadata", "Not Exists")
-
         buttons.callback("Attachment", f"userset {user_id} attachment")
         attachment = user_dict.get("attachment", "Not Exists")
 
@@ -111,7 +108,6 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         text += f"<b>• YT-DLP Options:</b> <b><code>{ytopt}</code></b>\n"
         text += f"<b>• Prefix:</b> <code>{prefix}</code>\n"
         text += f"<b>• Suffix:</b> <code>{suffix}</code>\n"
-        text += f"<b>• Metadata:</b> <code>{metadata}</code>\n"
         text += f"<b>• Attachment:</b> <code>{attachment}</code>\n"
         text += f"<b>• Remname:</b> <code>{remname}</code>"
         buttons.callback("Back", f"userset {user_id} back", "footer")
@@ -169,6 +165,9 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         buttons.callback("Leech Caption", f"userset {user_id} lcaption")
         lcaption = user_dict.get("lcaption", "Not Exists")
 
+        buttons.callback("Metadata", f"userset {user_id} metadata")
+        metadata = user_dict.get("metadata", "Not Exists")
+
         buttons.callback("Leech Dump", f"userset {user_id} ldump")
         ldump = "Not Exists" if (val := user_dict.get("ldump", "")) == "" else val
 
@@ -179,6 +178,7 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         text += f"<b>• Custom Thumbnail:</b> {thumbmsg}\n"
         text += f"<b>• Media Group:</b> {media_group}\n"
         text += f"<b>• Leech Caption:</b> <code>{escape(lcaption)}</code>\n"
+        text += f"<b>• Metadata:</b> <code>{metadata}</code>\n"
         text += f"<b>• Leech Dump:</b> <code>{ldump}</code>\n"
         text += f"<b>• MediaInfo Mode:</b> <code>{mediainfo}</code>"
 
