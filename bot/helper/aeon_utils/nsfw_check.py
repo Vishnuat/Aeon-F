@@ -8,7 +8,6 @@ nsfw_keywords = [
     "adult",
     "xnxx",
     "xvideos",
-    "predvdrip",
     "nsfwcherry",
     "hardcore",
     "Pornhub",
