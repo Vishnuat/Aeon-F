@@ -66,7 +66,6 @@ from bot.helper.mirror_leech_utils.download_utils.direct_link_generator import (
 async def _mirror_leech(
     client, message, is_qbit=False, is_leech=False, same_dir=None, bulk=[]
 ):
-    await send_react(message)
     user = message.from_user or message.sender_chat
     user_id = user.id
     user_dict = user_data.get(user_id, {})
