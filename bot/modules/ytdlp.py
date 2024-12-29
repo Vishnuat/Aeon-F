@@ -286,7 +286,6 @@ async def _mdisk(link, name):
 
 @new_task
 async def _ytdl(client, message, is_leech=False, same_dir=None, bulk=[]):
-    await send_react(message)
     text = message.text.split("\n")
     input_list = text[0].split(" ")
     qual = ""
